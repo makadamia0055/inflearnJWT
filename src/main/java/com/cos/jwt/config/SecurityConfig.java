@@ -36,6 +36,7 @@ public class SecurityConfig {
                     .formLogin().disable()
                     .httpBasic().disable() //
                     .apply(new MyCustomDsl())
+                    .and()
                     .authorizeRequests()
                     .antMatchers("/api/v1/user/**")
                     .access("hasRole('ROLE_USER') or hasRole('ROLE_MANAGER') or hasRole('ROLE_ADMIN')")
